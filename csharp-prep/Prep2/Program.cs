@@ -72,7 +72,7 @@ class Program
 
         Console.WriteLine($"You have an {letter}");
 
-        if(int.Parse(percentage) > 70)
+        if(int.Parse(percentage) >= 70)
         {
             Console.WriteLine("You passed!");
         }
