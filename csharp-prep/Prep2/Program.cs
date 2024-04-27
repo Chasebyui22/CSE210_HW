@@ -19,67 +19,66 @@ class Program
 
         Console.Write("What is your grade percentage? ");
         string percentage = Console.ReadLine();
-        
-        if (int.Parse(percentage) > a)
+        string letter = "";
+
+        if (int.Parse(percentage) >= a)
         {
-            Console.WriteLine("You have an A");
-            Console.WriteLine("You passed the course");
+            letter = "A";
         }
-        else if (int.Parse(percentage) > aLow)
+        else if (int.Parse(percentage) >= aLow)
         {
-            Console.WriteLine("You have an A -");
-            Console.WriteLine("You passed the course");
+            letter = "A -";
         }
-        else if (int.Parse(percentage) > bHigh)
+        else if (int.Parse(percentage) >= bHigh)
         {
-            Console.WriteLine("You have an B +");
-            Console.WriteLine("You passed the course");
+            letter = "B +";
         }
-        else if (int.Parse(percentage) > b)
+        else if (int.Parse(percentage) >= b)
         {
-            Console.WriteLine("You have an B");
-            Console.WriteLine("You passed the course");
+            letter = "B";
         }
-        else if (int.Parse(percentage) > bLow)
+        else if (int.Parse(percentage) >= bLow)
         {
-            Console.WriteLine("You have an B -");
-            Console.WriteLine("You passed the course");
+            letter = "B -";
         }
-        else if (int.Parse(percentage) > cHigh)
+        else if (int.Parse(percentage) >= cHigh)
         {
-            Console.WriteLine("You have an C +");
-            Console.WriteLine("You passed the course");
+            letter = "C +";
         }
-        else if (int.Parse(percentage) > c)
+        else if (int.Parse(percentage) >= c)
         {
-            Console.WriteLine("You have an C");
-            Console.WriteLine("You passed the course");
+            letter = "C";
         }
-        else if (int.Parse(percentage) > cLow)
+        else if (int.Parse(percentage) >= cLow)
         {
-            Console.WriteLine("You have an C -");
-            Console.WriteLine("You passed the course");
+            letter = "C -";
         }
-        else if (int.Parse(percentage) > dHigh)
+        else if (int.Parse(percentage) >= dHigh)
         {
-            Console.WriteLine("You have an D +");
-            Console.WriteLine("You did not pass the course");
+            letter = "D +";
         }
-        else if (int.Parse(percentage) > d)
+        else if (int.Parse(percentage) >= d)
         {
-            Console.WriteLine("You have an D");
-            Console.WriteLine("You did not pass the course");
+            letter = "D";
         }
-        else if (int.Parse(percentage) > dLow)
+        else if (int.Parse(percentage) >= dLow)
         {
-            Console.WriteLine("You have an D -");
-            Console.WriteLine("You did not pass the course");
+            letter = "D -";
         }
         else
         {
-            Console.WriteLine("You have an F");
-            Console.WriteLine("You did not pass the course");
+            letter = "F";
         }
-    
+
+        Console.WriteLine($"You have an {letter}");
+
+        if(int.Parse(percentage) > 70)
+        {
+            Console.WriteLine("You passed!");
+        }
+        else 
+        {
+            Console.WriteLine("You shall not pass!");
+        }
     }
 }
