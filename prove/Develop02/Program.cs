@@ -1,5 +1,6 @@
 using System;
-
+// For my Creativity aspect I added another metric that entry keeps track of and it is a mood rating from 1 to 10 for the day.
+// This could be used for statistical analysis of how your mood changes over time. Or just to see how our modd changes day to day.
 class Program
 {
     static void Main(string[] args)
