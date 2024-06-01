@@ -1,15 +1,1 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-
-class Program
-{
-    static void Main(string[] args)
-    {   
-        Course course1 = new Course();
-        course1._courseCode = "CSE 210";
-        course1._courseName = "Prog. with Classess";
-        course1._creditHours = 2;
-        course1._color = "Green";
-        course1.Display();       
-    } 
-} 
+﻿using System; using System.Collections.Generic; using System.Linq; public class Program { public static void Main() { string reference = "Proverbs 3:5-6"; var words = "Trust in the Lord with all thine heart and lean not unto thine own understanding".Split(' ').Select(word => (text: word, isHidden: false)).ToList(); Action hideWords = () => { Random rand = new Random(); var wordsToHide = words.Where(w => !w.isHidden).OrderBy(_ => rand.Next()).Take(3).ToList(); wordsToHide.ForEach(w => { var index = words.IndexOf(w); if (index != -1) words[index] = (w.text, true); }); }; Func<string> display = () => $"{reference} {string.Join(" ", words.Select(w => w.isHidden ? new string('_', w.text.Length) : w.text))}"; Func<bool> allWordsHidden = () => words.All(w => w.isHidden); while (true) { Console.Clear(); Console.WriteLine(display()); if (allWordsHidden()) break; Console.WriteLine("\nPress enter to continue or type 'quit' to exit."); if (Console.ReadLine().ToLower() == "quit") break; hideWords(); } } }
