@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+// For showing creativity in the assignment, I added a menu and a bunch of scriptures to choose from to then memorise. 
 class Program
 {
     static void Main(string[] args)
