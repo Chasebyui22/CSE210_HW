@@ -64,6 +64,7 @@ class Program
                 if (currentScripture.AllWordsHidden())
                 {
                     Console.WriteLine("All words are hidden. Returning to menu.");
+                    currentScripture.ResetHiddenWords();
                     break;
                 }
 
@@ -72,6 +73,7 @@ class Program
                 
                 if (input.ToLower() == "menu")
                 {
+                    currentScripture.ResetHiddenWords();
                     break;
                 }
 

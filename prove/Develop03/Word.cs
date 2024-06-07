@@ -13,6 +13,11 @@ public class Word
     {
         _isHidden = true;
     }
+    
+    public void Unhide()
+    {
+        _isHidden = false;
+    }
 
     public string GetDisplayText()
     {

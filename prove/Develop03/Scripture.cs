@@ -40,4 +40,13 @@ public class Scripture
     {
         return _words.All(word => word.IsHidden());
     }
+    
+    public void ResetHiddenWords()
+    {
+        foreach (var word in _words)
+        {
+            word.Unhide();
+        }
+        _hiddenWords.Clear();
+    }
 }
