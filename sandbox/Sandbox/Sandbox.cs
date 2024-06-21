@@ -1,1 +1,19 @@
-﻿using System; using System.Collections.Generic; using System.Linq; public class Program { public static void Main() { string reference = "Proverbs 3:5-6"; var words = "Trust in the Lord with all thine heart and lean not unto thine own understanding".Split(' ').Select(word => (text: word, isHidden: false)).ToList(); Action hideWords = () => { Random rand = new Random(); var wordsToHide = words.Where(w => !w.isHidden).OrderBy(_ => rand.Next()).Take(3).ToList(); wordsToHide.ForEach(w => { var index = words.IndexOf(w); if (index != -1) words[index] = (w.text, true); }); }; Func<string> display = () => $"{reference} {string.Join(" ", words.Select(w => w.isHidden ? new string('_', w.text.Length) : w.text))}"; Func<bool> allWordsHidden = () => words.All(w => w.isHidden); while (true) { Console.Clear(); Console.WriteLine(display()); if (allWordsHidden()) break; Console.WriteLine("\nPress enter to continue or type 'quit' to exit."); if (Console.ReadLine().ToLower() == "quit") break; hideWords(); } } }
+﻿class Program
+{
+    static void Main()
+    {
+        string greeting = "Hello, World!";
+        Console.WriteLine(greeting);
+
+        List<RoundShape> mylist = new List<RoundShape>();
+
+        mylist.Add(new Circle(1));
+        mylist.Add(new Cylinder(1, 2));
+        mylist.Add(new Sphere(1));
+
+        foreach (RoundShape shape in mylist)
+        {
+            Console.WriteLine(shape.Area());
+        }
+    }
+}
