@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Sentiment Analysis</h1>
+    <form id="sentimentForm" method="get">
+        <div class="form-group">
+            <label for="sentimentText">Enter Text:</label>
+            <input type="text" id="sentimentText" name="sentimentText" class="form-control" value="@ViewData["SentimentText"]" />
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze Sentiment</button>
+    </form>
+    <div id="result" style="margin-top: 20px;">
+        @if (ViewData["SentimentResult"] != null)
+        {
+            <strong>Sentiment: @ViewData["SentimentResult"]</strong><br />
+            <strong>Score: @ViewData["SentimentScore"]</strong>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('sentimentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var text = document.getElementById('sentimentText').value;
+            fetch('/Home/AnalyzeSentiment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ SentimentText: text })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                var resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<strong>Sentiment: ${data.prediction}</strong><br /><strong>Score: ${data.score}</strong>`;
+                console.log(`Prediction: ${data.prediction}, Score: ${data.score}`);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                var resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            });
+        });
+    </script>
+}
