@@ -10,7 +10,6 @@ class Program
             new Cycling("07 Aug 1817", 45, 10),
             new Swimming("15 Jan 2009", 80, 100)
         };
-
         foreach (var activity in activities)
         {
             Console.WriteLine(activity.GetSummary());

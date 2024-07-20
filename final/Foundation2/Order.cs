@@ -1,7 +1,6 @@
 class Order {
     private List<Product> _products;
     private Customer _customer;
-    
     public Order(Customer customer,List<Product> products) {
         _products = products;
         _customer = customer;

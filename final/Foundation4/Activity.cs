@@ -2,7 +2,6 @@ abstract class Activity {
     protected string _name;
     protected string _date;
     protected float _duration;
-    
     public Activity(string name, string date, float duration) {
         _name = name;
         _date = date;

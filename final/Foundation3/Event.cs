@@ -5,7 +5,6 @@ abstract class Event {
     private string _time;
     private Address _address;
     protected string _type;
-    
     public Event(string title, string description, string date, string time, Address address) {
         _title = title;
         _description = description;

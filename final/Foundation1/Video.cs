@@ -4,7 +4,6 @@ class Video
     public string _author;
     public float _length;
     private List<Comment> comments;
-
     public Video(string Title, string Author, float Length)
     {
         _title = Title;
